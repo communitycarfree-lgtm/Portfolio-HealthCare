@@ -82,6 +82,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "Dr.Code" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Dr.Code — Healthcare & Clinic Systems Developer" },
+      { name: "twitter:title", content: "Dr.Code — Healthcare & Clinic Systems Developer" },
+      { property: "og:description", content: "Full-stack developer specialized in HIPAA-compliant healthcare, EHR, and clinic management systems." },
+      { name: "twitter:description", content: "Full-stack developer specialized in HIPAA-compliant healthcare, EHR, and clinic management systems." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/86ef03b2-c536-48b6-b19f-6d52368920ec/id-preview-ff6ac8ea--0fdea31c-aac9-4473-a098-b1baa323a914.lovable.app-1781081698878.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/86ef03b2-c536-48b6-b19f-6d52368920ec/id-preview-ff6ac8ea--0fdea31c-aac9-4473-a098-b1baa323a914.lovable.app-1781081698878.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

@@ -1,78 +1,98 @@
-import clinic from "@/assets/project-clinic.jpg";
-import telemed from "@/assets/project-telemed.jpg";
-import ehr from "@/assets/project-ehr.jpg";
-import booking from "@/assets/project-booking.jpg";
-import pharmacy from "@/assets/project-pharmacy.jpg";
-
 export type ProjectCategory =
-  | "Clinic Management"
-  | "Telemedicine"
-  | "EHR Systems"
-  | "Patient Portal"
-  | "Booking Systems";
+  | "Digital Banking"
+  | "Payment Systems"
+  | "Loan Management"
+  | "Core Banking"
+  | "Wallets";
 
 export interface Project {
+  id: string;
   title: string;
   description: string;
-  image: string;
   category: ProjectCategory;
-  stack: string[];
-  metrics: string[];
+  tech: string[];
+  metrics: { label: string; value: string }[];
+  accent: string; // CSS gradient string
 }
 
 export const projects: Project[] = [
   {
-    title: "MediCore — Multi-Branch Clinic Management",
+    id: "1",
+    title: "NorthBank — Digital Banking Platform",
     description:
-      "End-to-end platform unifying patient records, scheduling, billing, and analytics across 12 clinic locations.",
-    image: clinic,
-    category: "Clinic Management",
-    stack: ["React", "NestJS", "PostgreSQL", "Redis", "AWS"],
-    metrics: ["15,000+ patients managed", "12 branches synced live", "HIPAA Compliant"],
+      "End-to-end retail banking suite with mobile + web clients, instant onboarding, card controls, and real-time spending insights for 320k+ active users.",
+    category: "Digital Banking",
+    tech: ["React Native", "Next.js", "NestJS", "PostgreSQL", "Kafka", "AWS"],
+    metrics: [
+      { label: "Active users", value: "320K+" },
+      { label: "Uptime", value: "99.99%" },
+      { label: "Onboarding", value: "< 4 min" },
+    ],
+    accent: "linear-gradient(135deg, #1f2a44, #0b1220)",
   },
   {
-    title: "VitalLink — Telemedicine Platform",
+    id: "2",
+    title: "FluxPay — Real-time Payment Gateway",
     description:
-      "HIPAA-compliant video consultations with e-prescriptions, file sharing, and real-time vitals monitoring.",
-    image: telemed,
-    category: "Telemedicine",
-    stack: ["React Native", "WebRTC", "Node.js", "MongoDB"],
-    metrics: ["99.98% call uptime", "<200ms latency", "End-to-end encrypted"],
+      "PCI-DSS compliant payment orchestration layer with smart routing, reconciliation engine and 3DS2 authentication across 40+ acquirers.",
+    category: "Payment Systems",
+    tech: ["Node.js", "Go", "Kafka", "Redis", "PostgreSQL", "Kubernetes"],
+    metrics: [
+      { label: "Processed", value: "$45M+/mo" },
+      { label: "Auth rate", value: "+12.4%" },
+      { label: "Latency", value: "84ms p95" },
+    ],
+    accent: "linear-gradient(135deg, #2a1f44, #120b22)",
   },
   {
-    title: "ChartFlow — EHR / EMR System",
+    id: "3",
+    title: "LendCore — Loan Origination System",
     description:
-      "Unified electronic health records with HL7/FHIR interoperability, lab integrations, and clinical decision support.",
-    image: ehr,
-    category: "EHR Systems",
-    stack: ["Next.js", ".NET", "SQL Server", "FHIR"],
-    metrics: ["HL7/FHIR certified", "30% faster charting", "Zero PHI breaches"],
+      "Smart loan origination + servicing platform with AI risk scoring, automated KYC, e-signature and dynamic underwriting rules.",
+    category: "Loan Management",
+    tech: ["NestJS", "Python", "PostgreSQL", "Redis", "AWS Lambda"],
+    metrics: [
+      { label: "Approval time", value: "−68%" },
+      { label: "Default rate", value: "−31%" },
+      { label: "Loans / month", value: "12K+" },
+    ],
+    accent: "linear-gradient(135deg, #44331f, #221608)",
   },
   {
-    title: "BookCare — Smart Booking & Patient Portal",
+    id: "4",
+    title: "Treasura — Corporate Treasury Dashboard",
     description:
-      "AI-assisted appointment scheduling with intake forms, reminders, and self-service patient dashboards.",
-    image: booking,
-    category: "Booking Systems",
-    stack: ["React", "TypeScript", "Supabase", "Twilio"],
-    metrics: ["Reduced no-shows by 45%", "+62% online bookings", "WCAG 2.1 AA"],
+      "Multi-entity treasury & cash management cockpit with multi-currency accounts, FX hedging, intraday liquidity and SWIFT MT/MX integration.",
+    category: "Core Banking",
+    tech: ["React", "TypeScript", "Spring Boot", "Oracle", "Kafka"],
+    metrics: [
+      { label: "Cash visibility", value: "Real-time" },
+      { label: "Entities", value: "180+" },
+      { label: "FX volume", value: "$1.2B" },
+    ],
+    accent: "linear-gradient(135deg, #1f4439, #08221a)",
   },
   {
-    title: "RxStock — Pharmacy & Inventory Suite",
+    id: "5",
+    title: "Vaulto — Secure Digital Wallet",
     description:
-      "Hospital-grade pharmacy management with expiry tracking, automated reordering, and drug-interaction alerts.",
-    image: pharmacy,
-    category: "Clinic Management",
-    stack: ["React", "Express", "PostgreSQL", "Azure"],
-    metrics: ["$1.2M annual savings", "98% stock accuracy", "FDA-aligned workflows"],
+      "Biometric-secured digital wallet with tokenized card storage, P2P transfers, KYC/AML pipeline and on-device fraud detection.",
+    category: "Wallets",
+    tech: ["React Native", "Node.js", "MongoDB", "Redis", "Azure"],
+    metrics: [
+      { label: "Fraud blocked", value: "−78%" },
+      { label: "KYC pass rate", value: "94%" },
+      { label: "Transfers", value: "8M+" },
+    ],
+    accent: "linear-gradient(135deg, #44291f, #220f08)",
   },
 ];
 
 export const categories = [
   "All",
-  "Clinic Management",
-  "Telemedicine",
-  "EHR Systems",
-  "Patient Portal",
-  "Booking Systems",
+  "Digital Banking",
+  "Payment Systems",
+  "Loan Management",
+  "Core Banking",
+  "Wallets",
 ] as const;

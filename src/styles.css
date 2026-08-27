@@ -186,3 +186,58 @@
   border-color: var(--color-border-strong);
   box-shadow: var(--glow-brand);
 }
+
+/* ===== Premium animated scrollbar ===== */
+:root {
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: color-mix(in srgb, var(--primary) 35%, transparent);
+  --scrollbar-thumb-hover: color-mix(in srgb, var(--primary) 65%, transparent);
+  --scrollbar-thumb-active: var(--primary);
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background-color 0.35s ease, border 0.35s ease;
+}
+
+/* Hover: thumb brightens and visually thickens (border shrinks) */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+  background-clip: padding-box;
+  border: 1px solid transparent;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--scrollbar-thumb-active);
+  background-clip: padding-box;
+}
+
+/* While the page is scrolling, gently highlight the thumb */
+html.is-scrolling::-webkit-scrollbar-thumb,
+html.is-scrolling ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-hover);
+  background-clip: padding-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::-webkit-scrollbar-thumb {
+    transition: none;
+  }
+}

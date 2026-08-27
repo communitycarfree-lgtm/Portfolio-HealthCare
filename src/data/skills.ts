@@ -1,94 +1,32 @@
-import {
-  Code2,
-  Server,
-  HeartPulse,
-  Database,
-  ShieldCheck,
-  Cloud,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { Code2, Server, Banknote, Database, Shield } from "lucide-react";
 
-export interface SkillGroup {
-  title: string;
-  icon: LucideIcon;
-  items: string[];
-}
-
-export const skillGroups: SkillGroup[] = [
+export const skillGroups = [
   {
     title: "Frontend",
     icon: Code2,
-    items: ["React 19", "TypeScript", "Tailwind CSS", "Framer Motion", "Next.js"],
+    items: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer Motion", "Redux Toolkit"],
   },
   {
     title: "Backend",
     icon: Server,
-    items: ["Node.js", "NestJS", "Express", ".NET", "REST & GraphQL"],
+    items: ["Node.js", "NestJS", "Express", "Java / Spring Boot", "GraphQL", "REST APIs"],
   },
   {
-    title: "Healthcare Domain",
-    icon: HeartPulse,
+    title: "FinTech Specialization",
+    icon: Banknote,
     items: [
-      "EHR / EMR Systems",
-      "Telemedicine",
-      "Appointment Booking",
-      "Patient Portals",
-      "Medical Billing",
-      "Pharmacy & Inventory",
-      "HL7 / FHIR Integration",
+      "Stripe", "Razorpay", "Plaid", "Core Banking APIs",
+      "Digital Wallets", "Loan Management", "KYC / AML", "Open Banking",
     ],
   },
   {
-    title: "Databases",
+    title: "Databases & Cache",
     icon: Database,
-    items: ["PostgreSQL", "MongoDB", "Redis", "SQL Server"],
+    items: ["PostgreSQL", "MongoDB", "Redis", "Kafka", "Elasticsearch"],
   },
   {
-    title: "Security & Compliance",
-    icon: ShieldCheck,
-    items: ["HIPAA", "GDPR", "End-to-end Encryption", "Role-Based Access", "Audit Logging"],
-  },
-  {
-    title: "Cloud & Realtime",
-    icon: Cloud,
-    items: ["AWS", "Azure", "WebSockets / WebRTC", "Docker", "CI/CD", "React Native"],
-  },
-];
-
-export interface ExperienceItem {
-  role: string;
-  org: string;
-  period: string;
-  description: string;
-}
-
-export const experience: ExperienceItem[] = [
-  {
-    role: "Lead Full-Stack Engineer — Healthcare",
-    org: "MediCore Health Systems",
-    period: "2023 — Present",
-    description:
-      "Architected a multi-tenant clinic platform serving 12 branches. Led HIPAA compliance, FHIR integrations, and a team of 6 engineers.",
-  },
-  {
-    role: "Senior Full-Stack Developer",
-    org: "VitalLink Telehealth",
-    period: "2021 — 2023",
-    description:
-      "Built a WebRTC telemedicine product from zero to 50k MAU. Designed end-to-end encryption and real-time vitals streaming.",
-  },
-  {
-    role: "Full-Stack Developer",
-    org: "ChartFlow EHR",
-    period: "2019 — 2021",
-    description:
-      "Delivered EHR modules integrating HL7/FHIR with 30+ hospital systems. Cut clinician charting time by 30%.",
-  },
-  {
-    role: "Software Engineer",
-    org: "Independent Clinics Network",
-    period: "2017 — 2019",
-    description:
-      "Developed appointment booking, billing, and patient portal modules for a network of 40+ private clinics.",
+    title: "Security & Cloud",
+    icon: Shield,
+    items: ["OAuth2", "JWT", "End-to-End Encryption", "AWS", "Azure", "Docker", "Kubernetes", "Microservices"],
   },
 ];

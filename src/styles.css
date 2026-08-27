@@ -136,6 +136,16 @@
   ::selection { background: rgba(59, 130, 246, 0.3); }
 }
 
+/* ===== Smooth theme (dark/light) transitions ===== */
+.theme-transitioning,
+.theme-transitioning *,
+.theme-transitioning *::before,
+.theme-transitioning *::after {
+  transition-property: background-color, color, border-color, box-shadow, fill, stroke, opacity, outline-color, text-decoration-color;
+  transition-duration: 400ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 @utility glass {
   background: var(--gradient-surface);
   backdrop-filter: blur(18px) saturate(130%);
@@ -239,5 +249,12 @@ html.is-scrolling ::-webkit-scrollbar-thumb {
 @media (prefers-reduced-motion: reduce) {
   ::-webkit-scrollbar-thumb {
     transition: none;
+  }
+  .theme-transitioning,
+  .theme-transitioning *,
+  .theme-transitioning *::before,
+  .theme-transitioning *::after {
+    transition-duration: 0.01ms !important;
+    transition-property: none !important;
   }
 }

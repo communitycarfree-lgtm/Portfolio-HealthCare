@@ -66,9 +66,7 @@ function MerchantsPage() {
             <Card key={merchant.id} className="rounded-2xl">
               <CardContent className="p-5">
                 <div className="flex items-center justify-between gap-2">
-                  <h2 className="font-semibold">
-                    {lang === "ar" ? merchant.nameAr : merchant.nameEn}
-                  </h2>
+                  <h2 className="font-semibold">{merchant.businessName}</h2>
                   <Badge
                     variant={merchant.status === "APPROVED" ? "default" : "secondary"}
                     className="rounded-full"

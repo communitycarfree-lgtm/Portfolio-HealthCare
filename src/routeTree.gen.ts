@@ -10,12 +10,26 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CaptainsRouteImport } from './routes/captains'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as MerchantsRouteImport } from './routes/merchants'
+import { Route as TrackingRouteImport } from './routes/tracking'
+import { Route as ZonesRouteImport } from './routes/zones'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaptainsRoute = CaptainsRouteImport.update({
+  id: '/captains',
+  path: '/captains',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HowItWorksRoute = HowItWorksRouteImport.update({
@@ -28,35 +42,83 @@ const MerchantsRoute = MerchantsRouteImport.update({
   path: '/merchants',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrackingRoute = TrackingRouteImport.update({
+  id: '/tracking',
+  path: '/tracking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZonesRoute = ZonesRouteImport.update({
+  id: '/zones',
+  path: '/zones',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/captains': typeof CaptainsRoute
+  '/faq': typeof FaqRoute
   '/how-it-works': typeof HowItWorksRoute
   '/merchants': typeof MerchantsRoute
+  '/tracking': typeof TrackingRoute
+  '/zones': typeof ZonesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/captains': typeof CaptainsRoute
+  '/faq': typeof FaqRoute
   '/how-it-works': typeof HowItWorksRoute
   '/merchants': typeof MerchantsRoute
+  '/tracking': typeof TrackingRoute
+  '/zones': typeof ZonesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/captains': typeof CaptainsRoute
+  '/faq': typeof FaqRoute
   '/how-it-works': typeof HowItWorksRoute
   '/merchants': typeof MerchantsRoute
+  '/tracking': typeof TrackingRoute
+  '/zones': typeof ZonesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/how-it-works' | '/merchants'
+  fullPaths:
+    | '/'
+    | '/captains'
+    | '/faq'
+    | '/how-it-works'
+    | '/merchants'
+    | '/tracking'
+    | '/zones'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/how-it-works' | '/merchants'
-  id: '__root__' | '/' | '/how-it-works' | '/merchants'
+  to:
+    | '/'
+    | '/captains'
+    | '/faq'
+    | '/how-it-works'
+    | '/merchants'
+    | '/tracking'
+    | '/zones'
+  id:
+    | '__root__'
+    | '/'
+    | '/captains'
+    | '/faq'
+    | '/how-it-works'
+    | '/merchants'
+    | '/tracking'
+    | '/zones'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CaptainsRoute: typeof CaptainsRoute
+  FaqRoute: typeof FaqRoute
   HowItWorksRoute: typeof HowItWorksRoute
   MerchantsRoute: typeof MerchantsRoute
+  TrackingRoute: typeof TrackingRoute
+  ZonesRoute: typeof ZonesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -66,6 +128,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/captains': {
+      id: '/captains'
+      path: '/captains'
+      fullPath: '/captains'
+      preLoaderRoute: typeof CaptainsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/how-it-works': {
@@ -82,13 +158,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MerchantsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tracking': {
+      id: '/tracking'
+      path: '/tracking'
+      fullPath: '/tracking'
+      preLoaderRoute: typeof TrackingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zones': {
+      id: '/zones'
+      path: '/zones'
+      fullPath: '/zones'
+      preLoaderRoute: typeof ZonesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CaptainsRoute: CaptainsRoute,
+  FaqRoute: FaqRoute,
   HowItWorksRoute: HowItWorksRoute,
   MerchantsRoute: MerchantsRoute,
+  TrackingRoute: TrackingRoute,
+  ZonesRoute: ZonesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
